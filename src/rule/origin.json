@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "origin",
+          "operation": "set",
+          "value": "https://im.jinritemai.com"
+        },
+        {
+          "header": "accept",
+          "operation": "set",
+          "value": "application/json, text/plain, */*"
+        },
+        {
+          "header": "content-type",
+          "operation": "set",
+          "value": "application/json;charset=UTF-8"
+        },
+        {
+          "header": "referer",
+          "operation": "set",
+          "value": "https://im.jinritemai.com/"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||pigeon.jinritemai.com/backstage"
+    }
+  }
+]

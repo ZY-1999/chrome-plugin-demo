@@ -1,0 +1,10 @@
+/.gitignore
+/.idea/
+**/registry.cache
+**/registry.cache.lock
+**.iml
+**/node_modules/
+
+/uml
+/Downloads/
+/logs/
