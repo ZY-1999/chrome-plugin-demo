@@ -1,3 +1,5 @@
+import { ExtensionJsType } from "@/common/interface/ExtensionJsType";
+
 declare module '*.css';
 declare module '*.png';
 declare module '*.jpg';
@@ -10,3 +12,7 @@ declare module '*.svg';
 
 
 declare module 'crypto-js'
+
+declare global {
+    var currentJsType: ExtensionJsType;
+}

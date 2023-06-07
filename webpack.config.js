@@ -41,6 +41,7 @@ module.exports = (env) => {
       popup: path.join(__dirname, 'src', 'popup', 'index.tsx'),
       background: path.join(__dirname, 'src', 'background', 'background.ts'),
       content: path.join(__dirname, 'src', 'content', 'content.ts'),
+      crawler: path.join(__dirname, 'src', 'crawler', 'crawler.ts'),
     },
     output: {
       filename: '[name].js',
