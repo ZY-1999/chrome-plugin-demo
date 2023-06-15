@@ -61,7 +61,7 @@ class ChromeMessageHelper {
         if (current === ExtensionJsType.BACKGROUND || current === ExtensionJsType.POPUP) {
             tabId = await this.getFirstAccessibleTabId();
         }
-        return await this.sendMessageWithRes({ ...message, id: this.messageId++, type: 'message', tabId })
+        return await this.sendMessageWithRes({ ...message, id: this.getMessageId(), type: 'message', tabId })
     }
 
     public addListener(key: string, source: ExtensionJsType, callback: MessageCallback) {
@@ -87,7 +87,7 @@ class ChromeMessageHelper {
         try {
             const message: ChromeMessage = {
                 channel: { key: contentAccessibleKey, source: getCurrentJsType(), target: ExtensionJsType.CONTENT },
-                id: this.messageId++,
+                id: this.getMessageId(),
                 data: {},
                 type: 'message',
                 tabId
@@ -144,6 +144,11 @@ class ChromeMessageHelper {
         }
     }
 
+    getMessageId() {
+        this.messageId = this.messageId++ % 1000000000
+        return this.messageId ;
+    }
+
     messageCheck(message: ChromeMessage) {
         if (message && message.id > 0 && message.channel) {
             const { key, source } = message.channel;
@@ -186,7 +191,7 @@ class ChromeMessageHelper {
                     delete this.responseHandlers[messageId];
                 }
             })
-        }, RESPONSE_HANDLER_EFFECTIVE_MS);
+        }, RESPONSE_HANDLER_EFFECTIVE_MS / 10);
     }
 
 }
