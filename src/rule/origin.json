@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "accept",
+          "operation": "set",
+          "value": "application/json, text/plain, */*"
+        },
+        {
+          "header": "content-type",
+          "operation": "set",
+          "value": "application/json;charset=UTF-8"
+        }
+        ]
+    },
+    "condition": {
+    }
+  }
+]

@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "插件示例",
+  "description": "插件示例",
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "permissions": [
+    "webRequest",
+    "cookies",
+    "declarativeNetRequest",
+    "storage"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "origin",
+        "enabled": true,
+        "path": "rule/origin.json"
+      }
+    ]
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon-34.png"
+  },
+  "icons": {
+    "128": "icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' ;object-src 'self'"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content.styles.css",
+        "icon-128.png",
+        "icon-34.png",
+        "cloud-download.png",
+        "crawler.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
